@@ -18,8 +18,6 @@ def operasBas():
         elif(operacion == "division"):
             return "<h1> La división es: {} </h1>".format(str(int(num1) / int(num2)))
 
-        
-        return "<h2> La suma es: {}".format(str(int(num1)+int(num2)))
     else:
         return '''
         <form action = "/operasBas" method = "POST">
