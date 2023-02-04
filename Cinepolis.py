@@ -14,6 +14,7 @@ def cargar():
 @app.route("/resultado", methods=["POST"])
 def resultado():
     numBol = int(request.form.get("txtCBoletos"))
+    canComp = int(request.form.get("txtCCompradores"))
     rbt = request.form.get("rbt")
     resultado = 0
     if(numBol < 8):
@@ -31,10 +32,12 @@ def resultado():
                 resultado = (12*numBol)-(12*numBol)*0.10
             elif(numBol <= 2):
                 resultado = 12*numBol
+        resultado = resultado * canComp
+        
     else:
         resultado = "No es posible comprar esa cantidad de boletos"
                 
-    return render_template("/Cinepolis.html", resultado = resultado, numBol = numBol)
+    return render_template("/Cinepolis.html", resultado = resultado, canComp = canComp,  numBol = numBol)
     
 if __name__ =="__main__":
     app.run(debug=True, port=3000)
