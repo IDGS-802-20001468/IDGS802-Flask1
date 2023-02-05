@@ -1,39 +1,37 @@
 {% extends "layoutCinepolis.html"%}
 
 {%block content%}
-    <div class="container" style="background-color: #f8f9fa; opacity: 0.85; ">
-        <div class="card m-3">
+    <div class="container row">
+        <div class="col-md-6 card card-light m-3" style="opacity: 0.85;">
             <div class="card-header">
                 <h2>Entradas</h2>
             </div>
             <div class="card-body">
                 <form class="form-horizontal" name="formEntradas" action="/resultado" method="post">
-                    <div class="control-group">
-                        <label for="txtNom" class="control-label">Nombre: </label>
+                    <div class="form-group">
+                        <label for="txtNom" class="form-label">Nombre: </label>
                         <div class="controls">
-                            <input type="text" name="txtNom" placeholder="Nombre">
+                            <input class="form-control" type="text" name="txtNom" placeholder="Nombre">
                         </div>
                     </div>
-                    <div class="control-group">
-                        <label for="txtCCompradores" class="control-label">Cantidad de Compradores: </label>
+                    <div class="form-group">
+                        <label for="txtCCompradores" class="form-label">Cantidad de Compradores: </label>
                         <div class="controls">
-                            <input type="number" name="txtCCompradores" placeholder="Compradores" value="1">
+                            <input class="form-control" type="number" name="txtCCompradores" placeholder="Compradores" value="1">
                         </div>
                     </div>
-                    <div class="control-group">
-                        <div class="controls">
-                            <label for="">Tarjeta Cinepo</label>
-                            <input type="radio" id="radioS" name="rbt" value="rbtSi">
+                    <div class="form-group">
+                            <label for="">Tarjeta Cineco</label>
+                            <input class="input-group-text" type="radio" id="radioS" name="rbt" value="rbtSi">
                             <label for="radioS">SI</label>
-                            <input type="radio" id="radioN" name="rbt" value="rbtNo">
+                            <input class="input-group-text" type="radio" id="radioN" name="rbt" value="rbtNo">
                             <label for="radioN">NO</label>
-                            
-                        </div>
+                
                     </div>
                     <div class="control-group">
-                        <label for="txtCBoletos" class="control-label">Cantidad de boletos: </label>
+                        <label for="txtCBoletos" class="form-label">Cantidad de boletos: </label>
                         <div class="controls">
-                            <input type="number" name="txtCBoletos" placeholder="Cantidad de boletos" value="">
+                            <input class="form-control" type="number" name="txtCBoletos" placeholder="Cantidad de boletos" value="">
                         </div>
                     </div>
                     <br><br>
@@ -42,19 +40,21 @@
                         <button type="submit" class="btn btn-default btn-primary">
                             Calcular Costo
                         </button>
-                        <button type="button" class="btn btn-default btn-primary" onclick="location.href='/layout'">
+                        <button type="button" class="btn btn-default btn-danger" onclick="location.href='/layout'">
                             Salir
                         </button>
                     </div>
                 </form>
             </div>
         </div>
-        <div class="m-3">
-            <div class="">
-                <h2>Salidas</h2>
-            </div>
-            <div id="result">
-                <h3>El valor a pagar por {{numBol}} boletos para {{canComp}} compradores es:  {{resultado}}</h1>
+        <div class="col-md-4 m-3" style="opacity: 0.85;">
+            <div class="card card-light ">
+                <div class="card-header">
+                    <h2>Salidas</h2>
+                </div>
+                <div class="card-body" id="result">
+                    <h3>El valor a pagar por {{numBol}} boletos para {{canComp}} compradores es:  {{resultado}}</h1>
+                </div>
             </div>
         </div>
 
